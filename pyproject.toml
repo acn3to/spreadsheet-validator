@@ -12,6 +12,8 @@ pytest = "^7.4.4"
 streamlit = "^1.30.0"
 taskipy = "^1.12.2"
 
+[tool.taskipy.tasks]
+run = "lsof -ti :8501 | xargs kill -9 | streamlit run src/app.py"
 
 [build-system]
 requires = ["poetry-core"]
