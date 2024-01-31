@@ -15,6 +15,7 @@ taskipy = "^1.12.2"
 [tool.taskipy.tasks]
 kill = "lsof -ti :8501 && xargs kill -9"
 run = "streamlit run src/app.py"
+test = "pytest tests -v"
 
 [build-system]
 requires = ["poetry-core"]
