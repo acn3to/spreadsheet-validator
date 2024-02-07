@@ -1,5 +1,6 @@
 import pytest
 import subprocess
+import os
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -42,3 +43,15 @@ def test_check_streamlit_h1(driver):
 
     expected_text = "Insert your spreadsheet for validation"
     assert h1_element.text == expected_text
+
+
+def test_check_user_can_upload_an_excel_and_receive_a_message(driver):
+    driver.get("http://localhost:8501")
+
+    sleep(5)
+
+    success_file_path = os.path.abspath("data/spreadsheet.xlsx")
+    driver.find_element(By.CSS_SELECTOR, 'input[type="file"]').send_keys(success_file_path)
+
+    sleep(5)
+    assert "The Excel file schema is correct!" in driver.page_source
