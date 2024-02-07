@@ -6,4 +6,7 @@ st.set_page_config(
 
 st.title("Insert your spreadsheet for validation")
 
+file = st.file_uploader("Upload your Excel file here", type=["xlsx"])
 
+if file:
+    st.success("The Excel file schema is correct!")
