@@ -11,6 +11,8 @@ selenium = "^4.17.2"
 pytest = "^8.0.0"
 streamlit = "^1.30.0"
 taskipy = "^1.12.2"
+pydantic = {extras = ["email"], version = "^2.6.1"}
+openpyxl = "^3.1.2"
 
 [tool.taskipy.tasks]
 kill = "lsof -ti :8501 && xargs kill -9"
